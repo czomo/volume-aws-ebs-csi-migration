@@ -7,7 +7,7 @@ test:
 
 .PHONY: bin
 bin: fmt vet
-	go build -o bin/{{ .PluginName }} github.com/{{ .Owner }}/{{ .Repo }}/cmd/plugin
+	go build -o bin/volume-aws-ebs-csi-migration github.com/czomo/volume-aws-ebs-csi-migration/cmd/plugin
 
 .PHONY: fmt
 fmt:

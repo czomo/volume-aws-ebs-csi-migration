@@ -1,7 +1,7 @@
 apiVersion: krew.googlecontainertools.github.com/v1alpha2
 kind: Plugin
 metadata:
-  name: {{ .PluginName }}
+  name: volume-aws-ebs-csi-migration
 spec:
   version: "v0.1.0"
   platforms:
@@ -9,47 +9,47 @@ spec:
       matchLabels:
         os: linux
         arch: amd64
-    uri: https://github.com/{{ .Owner }}/{{ .Repo }}/releases/download/v0.1.0/{{ .PluginName }}_linux_amd64.tar.gz
+    uri: https://github.com/czomo/volume-aws-ebs-csi-migration/releases/download/v0.1.0/volume-aws-ebs-csi-migration_linux_amd64.tar.gz
     sha256: ""
     files:
-    - from: "./{{ .PluginName }}"
+    - from: "./volume-aws-ebs-csi-migration"
       to: "."
     - from: LICENSE
       to: "."
-    bin: "{{ .PluginName }}"
+    bin: "volume-aws-ebs-csi-migration"
   - selector:
       matchLabels:
         os: darwin
         arch: amd64
-    uri: https://github.com/{{ .Owner }}/{{ .Repo }}/releases/download/v0.1.0/{{ .PluginName }}_darwin_amd64.tar.gz
+    uri: https://github.com/czomo/volume-aws-ebs-csi-migration/releases/download/v0.1.0/volume-aws-ebs-csi-migration_darwin_amd64.tar.gz
     sha256: ""
     files:
-    - from: "./{{ .PluginName }}"
+    - from: "./volume-aws-ebs-csi-migration"
       to: "."
     - from: LICENSE
       to: "."
-    bin: "{{ .PluginName }}"
+    bin: "volume-aws-ebs-csi-migration"
   - selector:
       matchLabels:
         os: windows
         arch: amd64
-    uri: https://github.com/{{ .Owner }}/{{ .Repo }}/releases/download/v0.1.0/{{ .PluginName }}_windows_amd64.zip
+    uri: https://github.com/czomo/volume-aws-ebs-csi-migration/releases/download/v0.1.0/volume-aws-ebs-csi-migration_windows_amd64.zip
     sha256: ""
     files:
-    - from: "/{{ .PluginName }}.exe"
+    - from: "/volume-aws-ebs-csi-migration.exe"
       to: "."
     - from: LICENSE
       to: "."
-    bin: "{{ .PluginName }}.exe"
+    bin: "volume-aws-ebs-csi-migration.exe"
   shortDescription: A new plugin
-  homepage: https://github.com/{{ .Owner }}/{{ .Repo }}
+  homepage: https://github.com/czomo/volume-aws-ebs-csi-migration
   caveats: |
     Usage:
-      $ kubectl {{ .PluginName }}
+      $ kubectl volume-aws-ebs-csi-migration
 
     For additional options:
-      $ kubectl {{ .PluginName }} --help
-      or https://github.com/{{ .Owner }}/{{ .Repo }}/blob/v0.1.0/doc/USAGE.md
+      $ kubectl volume-aws-ebs-csi-migration --help
+      or https://github.com/czomo/volume-aws-ebs-csi-migration/blob/v0.1.0/doc/USAGE.md
 
   description: |
-    This is a new plugin
+    This is plugin that helps you change provisioner of aws ebs driver to csi

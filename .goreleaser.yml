@@ -1,10 +1,10 @@
-project_name: {{ .PluginName }}
+project_name: volume-aws-ebs-csi-migration
 release:
   github:
-    owner: {{ .Owner }}
-    name: {{ .Repo }}
+    owner: czomo
+    name: volume-aws-ebs-csi-migration
 builds:
-  - id: {{ .PluginName }}
+  - id: volume-aws-ebs-csi-migration
     goos:
     - linux
     - windows
@@ -17,12 +17,12 @@ builds:
       - GO111MODULE=on
     main: cmd/plugin/main.go
     ldflags: -s -w
-      -X github.com/{{ .Owner }}/{{ .Repo }}/pkg/version.version=
+      -X github.com/czomo/volume-aws-ebs-csi-migration/pkg/version.version=
 archives:
-  - id: {{ .PluginName }}
+  - id: volume-aws-ebs-csi-migration
     builds:
-    - {{ .PluginName }}
-    name_template: {{ `"{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"` }}
+    - volume-aws-ebs-csi-migration
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
     format_overrides:
     - goos: windows
       format: zip
